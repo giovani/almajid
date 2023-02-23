@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tarot Online</title>
+	<script src="https://tarotgarden.github.io/js/tarot.js"></script>
+</head>
+<body>
+	<h1>Tarot Online</h1>
+	<label for="pergunta">Digite sua pergunta:</label>
+	<input type="text" id="pergunta">
+	<button onclick="tirarCartas()">Tirar Cartas</button>
+
+	<div id="resultado"></div>
+
+	<script>
+		function tirarCartas() {
+			// Array com as cartas do tarot
+			let cartas = [
+				"O Louco",
+				"O Mago",
+				"A Sacerdotisa",
+				"A Imperatriz",
+				"O Imperador",
+				"O Papa",
+				"Os Enamorados",
+				"O Carro",
+				"A Justiça",
+				"O Eremita",
+				"A Roda da Fortuna",
+				"A Força",
+				"O Enforcado",
+				"A Morte",
+				"A Temperança",
+				"O Diabo",
+				"A Torre",
+				"A Estrela",
+				"A Lua",
+				"O Sol",
+				"O Julgamento",
+				"O Mundo"
+			];
+
+			// Seleciona três cartas aleatoriamente
+			let carta1 = cartas[Math.floor(Math.random() * cartas.length)];
+			let carta2 = cartas[Math.floor(Math.random() * cartas.length)];
+			let carta3 = cartas[Math.floor(Math.random() * cartas.length)];
+
+			// Obtém a pergunta do usuário
+			let pergunta = document.getElementById("pergunta").value;
+
+			// Analisa as cartas e gera a resposta usando a biblioteca de Tarô do JS do Tarot Garden
+			let resposta = Tarot.cardCombination([carta1, carta2, carta3], pergunta);
+
+			// Exibe o resultado da tiragem e a resposta
+			document.getElementById("resultado").innerHTML = "<p>Cartas sorteadas: " + carta1 + ", " + carta2 + ", " + carta3 + "</p><p>Resposta: " + resposta + "</p>";
+		}
+	</script>
+</body>
+</html>
